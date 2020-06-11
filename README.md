@@ -9,13 +9,15 @@ inspiration came from ng-conf 2019 crash course: angular and ngRx.
 In this example: we will create a banana item with color, size and rating.
 option 1 --> create banana item locally
 option 2 --> create banana item with effects and a fake http service
-you can than change size parameters with injected value and without injected value
+you can than change size parameters with injected value and without injected value.
+writing by gilad glasberg
 
 # Running
 npm install -g @angular/cli
+
 npm install
+
 ng serve
 
-writing by gilad glasberg
 
 
