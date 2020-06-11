@@ -1,0 +1,15 @@
+<h1>Banana Options</h1>
+
+<div *ngIf="banana$ | async as banana">
+  <button class="local-button" (click)="newBanana()">New Banana</button>
+  <button class="local-button" (click)="retrieveNewBananaItemFromServer()">Get Banana From Fake Server Call</button>
+  <button class="local-button" (click)="updateBanana()" *ngIf="banana?.size">Update Size Without Injected Value</button>
+  <button class="local-button" (click)="updateBananaSizeWithValue(bananaSizeOption.SMALL)" *ngIf="banana?.size">Update Size With Injected Value
+  </button>
+  <div class="result" *ngIf="banana?.size; else noBanana">
+    {{banana | json}}
+  </div>
+  <ng-template #noBanana>
+    <p>No Current Banana Found</p>
+  </ng-template>
+</div>
