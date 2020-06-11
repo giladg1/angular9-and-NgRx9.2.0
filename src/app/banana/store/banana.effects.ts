@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import {EMPTY, of} from 'rxjs';
+import {of} from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
-import {BananaService} from '../service/banana.service'
+import {BananaService} from '../services/banana.service'
 import {bananaLoadedSuccess, retrieveNewBananaItemFromServer} from "./banana.actions";
 @Injectable()
 export class BananaEffects {

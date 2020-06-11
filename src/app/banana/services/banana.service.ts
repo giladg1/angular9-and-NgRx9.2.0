@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
-import {BananaColor, BananaRating, BananaSize} from "../model/banana-size";
+import {BananaColor, BananaRating, BananaModel} from "../model/banana-model";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class BananaService {
         console.log('Done fetching Banana');
         const newBanana = {
           color: BananaColor.YELLOW,
-          size: BananaSize.BIG,
+          size: BananaModel.BIG,
           rating: BananaRating.EXCELLENT
         }
         subscriber.next(newBanana);

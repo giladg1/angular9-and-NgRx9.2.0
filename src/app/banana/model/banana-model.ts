@@ -3,7 +3,7 @@ export enum BananaColor {
   BROWN = 'Brown'
 }
 
-export enum BananaSize {
+export enum BananaModel {
   SMALL = 'Small',
   MEDIUM = 'Medium',
   BIG = 'Big'

@@ -9,7 +9,7 @@ import {
   updateBananaSize,
   updateBananaSizeWithUserValue
 } from "./store/banana.actions";
-import {BananaSize} from "./model/banana-size";
+import {BananaModel} from "./model/banana-model";
 import {currentBanana} from "../store/app.selectors";
 
 @Component({
@@ -19,7 +19,7 @@ import {currentBanana} from "../store/app.selectors";
 })
 export class BananaComponent implements OnInit {
   banana$: Observable<State>
-  bananaSizeOption = BananaSize;
+  bananaSizeOption = BananaModel;
 
   constructor(private store: Store<AppState>) { }
 
@@ -35,8 +35,8 @@ export class BananaComponent implements OnInit {
     this.store.dispatch(updateBananaSize())
   }
 
-  updateBananaSizeWithValue(val: BananaSize): void {
-    this.store.dispatch(updateBananaSizeWithUserValue({size: BananaSize.SMALL}))
+  updateBananaSizeWithValue(val: BananaModel): void {
+    this.store.dispatch(updateBananaSizeWithUserValue({size: BananaModel.SMALL}))
   }
 
   retrieveNewBananaItemFromServer(): void {

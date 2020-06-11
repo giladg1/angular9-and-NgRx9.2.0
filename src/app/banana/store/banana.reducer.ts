@@ -5,11 +5,11 @@ import {
   retrieveNewBananaItemFromServer,
   updateBananaSizeWithUserValue, bananaLoadedSuccess, bananaLoadedError
 } from './banana.actions'
-import {BananaColor, BananaRating, BananaSize} from "../model/banana-size";
+import {BananaColor, BananaRating, BananaModel} from "../model/banana-model";
 
 export interface State {
   color: BananaColor;
-  size: BananaSize;
+  size: BananaModel;
   rating: BananaRating
 }
 
@@ -19,8 +19,8 @@ export const initialState: any = {
 
 const _bananaReducer = createReducer(
   initialState,
-  on(createBanana, state => ({...state, color: BananaColor.YELLOW, size: BananaSize.MEDIUM, rating: BananaRating.OK})),
-  on(updateBananaSize, state => ({...state, size: BananaSize.BIG})),
+  on(createBanana, state => ({...state, color: BananaColor.YELLOW, size: BananaModel.MEDIUM, rating: BananaRating.OK})),
+  on(updateBananaSize, state => ({...state, size: BananaModel.BIG})),
   on(updateBananaSizeWithUserValue, (state, payload) => ({...state, size: payload.size})),
   on(retrieveNewBananaItemFromServer, state => state),
   on(bananaLoadedSuccess, (state, payload: State) => ({...state, color: payload.color, size: payload.size, rating: payload.rating })),
