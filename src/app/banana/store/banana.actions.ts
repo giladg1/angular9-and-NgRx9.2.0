@@ -8,6 +8,7 @@ export const updateBananaSizeWithUserValue = createAction('[Banana Item] Update 
 export const retrieveNewBananaItemFromServer = createAction('[Banana Item] Retrieve New Banana From Server');
 export const bananaLoadedSuccess = createAction('[Banana Item] Banana Loaded Success', props<State>());
 export const bananaLoadedError = createAction('[Banana Item] Banana Loaded Error');
+export const clearBanana = createAction('[Banana Item] Clear Banana')
 
 const actions = union({
   createBanana,
@@ -15,7 +16,8 @@ const actions = union({
   updateBananaSizeWithUserValue,
   retrieveNewBananaItemFromServer,
   bananaLoadedSuccess,
-  bananaLoadedError
+  bananaLoadedError,
+  clearBanana
 });
 
 export type BananaActions = typeof actions;

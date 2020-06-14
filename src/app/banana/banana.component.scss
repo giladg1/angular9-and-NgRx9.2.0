@@ -1,8 +1,18 @@
 :host {
+  .main-title {
+    text-align: center;
+  }
   .local-button {
     margin-right: 10px;
   }
   .result {
     padding-top: 30px;
+    font-size: large;
+  }
+  .data-container {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

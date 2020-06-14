@@ -1,15 +1,29 @@
-<h1>Banana Options</h1>
+<mat-card>
+  <h1 class="main-title">Banana Options</h1>
 
-<div *ngIf="banana$ | async as banana">
-  <button class="local-button" (click)="newBanana()">New Banana</button>
-  <button class="local-button" (click)="retrieveNewBananaItemFromServer()">Get Banana From Fake Server Call</button>
-  <button class="local-button" (click)="updateBanana()" *ngIf="banana?.size">Update Size Without Injected Value</button>
-  <button class="local-button" (click)="updateBananaSizeWithValue(bananaSizeOption.SMALL)" *ngIf="banana?.size">Update Size With Injected Value
-  </button>
-  <div class="result" *ngIf="banana?.size; else noBanana">
-    {{banana | json}}
+  <div *ngIf="banana$ | async as banana">
+    <button mat-raised-button color="primary" class="local-button" (click)="newBanana()">New Banana</button>
+    <button mat-raised-button color="primary" class="local-button" (click)="retrieveNewBananaItemFromServer()">Get
+      Banana From Fake Server Call
+    </button>
+    <button mat-stroked-button color="primary" class="local-button" [disabled]="disableChanges" (click)="updateBanana()">Update
+      Size Without Injected Value
+    </button>
+    <button mat-stroked-button color="primary" class="local-button"
+            [disabled]="disableChanges"
+            (click)="updateBananaSizeWithValue(bananaSizeOption.SMALL)">Update Size With Injected
+      Value
+    </button>
+    <div class="data-container" [@openClose]="isOpen ? 'open' : 'closed'">
+      <mat-spinner *ngIf="showSpinner; else noSpinner"></mat-spinner>
+      <ng-template #noSpinner>
+        <div class="result" *ngIf="banana?.size; else noBanana">
+          {{banana | json}}
+        </div>
+        <ng-template #noBanana>
+          <p class="result">No Current Banana Found</p>
+        </ng-template>
+      </ng-template>
+    </div>
   </div>
-  <ng-template #noBanana>
-    <p>No Current Banana Found</p>
-  </ng-template>
-</div>
+</mat-card>

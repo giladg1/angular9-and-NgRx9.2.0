@@ -3,7 +3,8 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import {of} from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
 import {BananaService} from '../services/banana.service'
-import {bananaLoadedSuccess, retrieveNewBananaItemFromServer} from "./banana.actions";
+import {bananaLoadedError, bananaLoadedSuccess, retrieveNewBananaItemFromServer} from "./banana.actions";
+import {State} from "./banana.reducer";
 @Injectable()
 export class BananaEffects {
 
@@ -16,8 +17,8 @@ export class BananaEffects {
     ofType(retrieveNewBananaItemFromServer),
     mergeMap(() => this.bananaService.getBanana()
       .pipe(
-        map(data => bananaLoadedSuccess(data)),
-        catchError(() => of({ type: '[Banana Item] Banana Loaded Error' }))
+        map((data: State) => bananaLoadedSuccess(data)),
+        catchError(() => of(bananaLoadedError))
       ))
     )
   );

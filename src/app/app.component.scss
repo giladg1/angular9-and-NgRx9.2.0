@@ -5,6 +5,15 @@
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  .fruits-container-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    button {
+      margin: 10px;
+    }
+  }
 }
 
 h1,
@@ -52,7 +61,7 @@ p {
 
 .content {
   display: flex;
-  margin: 82px auto 32px;
+  margin: 42px auto 32px;
   padding: 0 16px;
   max-width: 960px;
   flex-direction: column;

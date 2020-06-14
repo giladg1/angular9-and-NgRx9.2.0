@@ -3,7 +3,7 @@ import {
   createBanana,
   updateBananaSize,
   retrieveNewBananaItemFromServer,
-  updateBananaSizeWithUserValue, bananaLoadedSuccess, bananaLoadedError
+  updateBananaSizeWithUserValue, bananaLoadedSuccess, bananaLoadedError, clearBanana
 } from './banana.actions'
 import {BananaColor, BananaRating, BananaModel} from "../model/banana-model";
 
@@ -25,6 +25,7 @@ const _bananaReducer = createReducer(
   on(retrieveNewBananaItemFromServer, state => state),
   on(bananaLoadedSuccess, (state, payload: State) => ({...state, color: payload.color, size: payload.size, rating: payload.rating })),
   on(bananaLoadedError, (state) => {console.log('Failed to load banana from fake server'); return state}),
+  on(clearBanana, (state) => ({}))
 )
 
 export function reducer(state: State | undefined, action: Action) {

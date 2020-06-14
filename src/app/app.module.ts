@@ -9,6 +9,8 @@ import {combinedReducers} from "./store/app.reducers";
 import {environment} from "../environments/environment";
 import {EffectsModule} from '@ngrx/effects';
 import {BananaEffects} from "./banana/store/banana.effects";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MaterialModule} from "./core/material/material.module";
 
 @NgModule({
   declarations: [
@@ -17,13 +19,16 @@ import {BananaEffects} from "./banana/store/banana.effects";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     StoreModule.forRoot(combinedReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production // Restrict extension to log-only mode
     }),
     EffectsModule.forRoot([BananaEffects]),
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

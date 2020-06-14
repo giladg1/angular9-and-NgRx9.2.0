@@ -1,11 +1,19 @@
-<h1>Apple Options</h1>
-<button class="local-button" (click)="createApple()">Create Apple</button>
-<button class="local-button" (click)="clearApple()">Remove Apple</button>
-<div *ngIf="apple$ | async as apple">
-  <div class="result" *ngIf="apple?.size; else noApple">
-    {{apple | json}}
+<mat-card>
+  <h1 class="main-title">Banana Options</h1>
+
+  <div *ngIf="apple$ | async as apple">
+    <div class="buttons-center">
+      <button mat-raised-button color="primary" class="local-button" (click)="createApple()">Create Apple</button>
+      <button mat-raised-button color="primary" class="local-button" (click)="clearApple()">Remove Apple</button>
+    </div>
+    <div class="data-container">
+        <div class="result" *ngIf="apple?.size; else noApple">
+          {{apple | json}}
+        </div>
+        <ng-template #noApple>
+          <p class="result">No Current Apple Found</p>
+        </ng-template>
+    </div>
   </div>
-  <ng-template #noApple>
-    <p>No Current Apple Found</p>
-  </ng-template>
-</div>
+</mat-card>
+
