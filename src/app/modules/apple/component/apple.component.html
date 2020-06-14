@@ -1,0 +1,11 @@
+<h1>Apple Options</h1>
+<button class="local-button" (click)="createApple()">Create Apple</button>
+<button class="local-button" (click)="clearApple()">Remove Apple</button>
+<div *ngIf="apple$ | async as apple">
+  <div class="result" *ngIf="apple?.size; else noApple">
+    {{apple | json}}
+  </div>
+  <ng-template #noApple>
+    <p>No Current Apple Found</p>
+  </ng-template>
+</div>
