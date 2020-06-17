@@ -6,4 +6,4 @@ export const getAppleState = createFeatureSelector<State>('apple');
 export const currentApple = createSelector(
   getAppleState,
   (state: State) => state
-)
+);

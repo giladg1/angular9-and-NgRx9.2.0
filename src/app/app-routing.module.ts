@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {BananaComponent} from "./banana/banana.component";
+import {BananaComponent} from './banana/banana.component';
 
 
 const routes: Routes = [

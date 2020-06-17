@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {Observable} from "rxjs";
-import {BananaColor, BananaRating, BananaModel} from "../model/banana-model";
-import {State} from "../store/banana.reducer";
+import {Observable} from 'rxjs';
+import {BananaColor, BananaRating, BananaModel} from '../model/banana-model';
+import {State} from '../store/banana.reducer';
 
 @Injectable({
   providedIn: 'root'
@@ -22,10 +22,10 @@ export class BananaService {
           color: BananaColor.YELLOW,
           size: BananaModel.BIG,
           rating: BananaRating.EXCELLENT
-        }
+        };
         subscriber.next(newBanana);
-        subscriber.complete()
-      }, milliseconds)
-    })
+        subscriber.complete();
+      }, milliseconds);
+    });
   }
 }

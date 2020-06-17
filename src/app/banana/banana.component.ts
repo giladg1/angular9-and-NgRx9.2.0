@@ -1,17 +1,17 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
-import {State} from "./store/banana.reducer";
-import {select, Store} from "@ngrx/store";
-import {AppState} from "../store/app.reducers";
+import {Observable} from 'rxjs';
+import {State} from './store/banana.reducer';
+import {select, Store} from '@ngrx/store';
+import {AppState} from '../store/app.reducers';
 import {
   clearBanana,
   createBanana,
   retrieveNewBananaItemFromServer,
   updateBananaSize,
   updateBananaSizeWithUserValue
-} from "./store/banana.actions";
-import {BananaModel} from "./model/banana-model";
-import {currentBanana} from "../store/app.selectors";
+} from './store/banana.actions';
+import {BananaModel} from './model/banana-model';
+import {currentBanana} from '../store/app.selectors';
 import {
   trigger,
   state,
@@ -44,7 +44,7 @@ import {
   ],
 })
 export class BananaComponent implements OnInit {
-  banana$: Observable<State>
+  banana$: Observable<State>;
   bananaSizeOption = BananaModel;
   showSpinner = false;
   isOpen = false;
@@ -53,8 +53,8 @@ export class BananaComponent implements OnInit {
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
-    this.store.dispatch(clearBanana())
-    this.banana$ = this.store.pipe(select(currentBanana))
+    this.store.dispatch(clearBanana());
+    this.banana$ = this.store.pipe(select(currentBanana));
     this.banana$.subscribe((value) => {
       this.showSpinner = false;
       // if value is not empty (meaning, we have a banana item) -> do not disable the edit buttons
@@ -63,20 +63,20 @@ export class BananaComponent implements OnInit {
   }
 
   newBanana(): void {
-    this.isOpen = true
-    this.store.dispatch(createBanana())
+    this.isOpen = true;
+    this.store.dispatch(createBanana());
   }
 
   updateBanana(): void {
-    this.store.dispatch(updateBananaSize())
+    this.store.dispatch(updateBananaSize());
   }
 
   updateBananaSizeWithValue(val: BananaModel): void {
-    this.store.dispatch(updateBananaSizeWithUserValue({size: val}))
+    this.store.dispatch(updateBananaSizeWithUserValue({size: val}));
   }
 
   retrieveNewBananaItemFromServer(): void {
-    this.isOpen = true
+    this.isOpen = true;
     this.showSpinner = true;
     this.store.dispatch(retrieveNewBananaItemFromServer());
   }

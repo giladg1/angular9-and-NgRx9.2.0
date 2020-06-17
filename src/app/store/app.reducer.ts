@@ -1,4 +1,4 @@
-import {createReducer} from "@ngrx/store";
+import {createReducer} from '@ngrx/store';
 
 export interface State {
   isAppActive: boolean;
@@ -10,8 +10,8 @@ const initialState: State = {
 
 const _AppReducer = createReducer(
   initialState,
-)
+);
 
 export function reducer(state: State | undefined, action) {
-  return _AppReducer(state, action)
+  return _AppReducer(state, action);
 }

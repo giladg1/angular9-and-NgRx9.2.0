@@ -1,6 +1,6 @@
-import {createAction, props, union} from '@ngrx/store'
-import {BananaModel} from "../model/banana-model";
-import {State} from "./banana.reducer";
+import {createAction, props, union} from '@ngrx/store';
+import {BananaModel} from '../model/banana-model';
+import {State} from './banana.reducer';
 
 export const createBanana = createAction('[Banana Item] Create Banana');
 export const updateBananaSize = createAction('[Banana Item] Update Banana Size');
@@ -8,7 +8,7 @@ export const updateBananaSizeWithUserValue = createAction('[Banana Item] Update 
 export const retrieveNewBananaItemFromServer = createAction('[Banana Item] Retrieve New Banana From Server');
 export const bananaLoadedSuccess = createAction('[Banana Item] Banana Loaded Success', props<State>());
 export const bananaLoadedError = createAction('[Banana Item] Banana Loaded Error');
-export const clearBanana = createAction('[Banana Item] Clear Banana')
+export const clearBanana = createAction('[Banana Item] Clear Banana');
 
 const actions = union({
   createBanana,
